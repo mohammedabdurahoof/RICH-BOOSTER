@@ -1,0 +1,39 @@
+<div class="content">
+	<section class="price-area section-gap pb-4">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card ">
+					<div class="card-header ">
+						<h5 class="card-title">Services</h5>
+						<p class="card-category">let us boost</p>
+					</div>
+					<div class="card-body ">
+						<div class="row">
+							{{#each service}}
+							<div class="col-md-4">
+								<div class="service p-3 cd-popup-trigger-sub-{{@index}}" style="cursor: pointer;">
+									<center><img src="/images/service/{{_id}}.jpg" alt="image" width="150px" srcset="">
+										<p class="p-2" style="font-weight: 900;">{{serviceName}}</p>
+									</center>
+								</div>
+							</div>
+							<div class="cd-popup-sub cd-popup-sub-{{@index}}" role="alert">
+								<div class="cd-popup-container">
+									<h4 class="p-3" style="font-weight: bold;">Select a service:</h4>
+									{{#each subServices}}
+									<a href="/plans?service={{serviceName}}&id={{../_id}}">
+										<h6 class="serviceName ">{{serviceName}}</h6>
+									</a>
+									<hr>
+									{{/each}}
+									<a href="#0" class="cd-popup-close img-replace">Close</a>
+								</div> <!-- cd-popup-container -->
+							</div> <!-- cd-popup -->
+							{{/each}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>

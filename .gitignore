@@ -1,0 +1,4 @@
+node_modules
+public/images/service/*
+!public/images/service/.gitkeep
+public/scss

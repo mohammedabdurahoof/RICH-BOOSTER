@@ -1,0 +1,120 @@
+<div class="content">
+  <section class="price-area section-gap pb-4">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header ">
+            <h5 class="card-title">Services</h5>
+
+          </div>
+          <div class="card-body " style="min-height: 452px;">
+
+            <div class="container">
+              <div class="ui-tabgroup">
+                {{#each services}}
+                <input class="ui-tab{{@index}}" value="{{_id}}" type="radio" id="tgroup_f_tab{{@index}}" name="tgroup_f" {{ifequals
+                  serviceName ../services.[0].serviceName}} />
+                {{/each}}
+                <input class="ui-tab cd-popup-trigger" type="radio" id="tgroup_f_tab" name="tgroup_f" />
+                <div class="ui-tabs">
+                  {{#each services}}
+                  <label class="ui-tab{{@index}}" for="tgroup_f_tab{{@index}}">{{serviceName}}</label>
+                  {{/each}}
+                  <label class="ui-tab" for="tgroup_f_tab"><i class="nc-icon nc-simple-add"></i></label>
+                </div>
+                <div class="ui-panels">
+                  {{#each services }}
+                  <div class="ui-tab{{@index}}">
+                    <h2 class="text-uppercase" style="font-weight: bold;">{{serviceName}}</h2>
+                    <div class="row">
+                      {{#each subServices}}
+                      <div class="col-md-6">
+                        <div class="card-1">
+                          <div class="" style="height: 184px;">
+                            <h2 style="font-weight: bold; color:#fff;">{{serviceName}}</h2>
+                          </div>
+                          <div class="float-right " style="display: flex; margin-right: -19px;">
+                            <a class="btn btn-primary" href="/admin/plans?service={{serviceName}}&id={{../_id}}">Show
+                              Plans</a>
+                            <a class="btn btn-danger" href="/admin/delete?service={{serviceName}}&id={{../_id}}"  onclick="return confirm('are you want delete this service')">Delete
+                              </a>
+                          </div>
+                        </div>
+                      </div>
+                      {{/each}}
+                      <div class="col-md-6">
+                        <div class="card-1 cd-popup-trigger-sub">
+                          <i class="nc-icon nc-simple-add" style="font-size: 220px; color:#fff"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {{/each}}
+                </div>
+
+              </div>
+
+
+              <div class="cd-popup" role="alert">
+                <div class="cd-popup-container">
+                  <form action="/admin/add-service" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                      <label for="" class="float-left text-dark ml-3 mt-2" style="font-size:medium;">Upload Service
+                        image
+                        :</label>
+                      <div class="col-xs-12 p-n m-b-md" id="divUploader" style="padding: 45px 0px 0px 0px ;">
+                        <label for="file" class="br_dropzone">
+
+                          <i class="nc-icon nc-simple-add icon" id="icon"
+                            style="font-size: 120px; margin-top: 2px; position: absolute; cursor: pointer; padding: 1px 0px 0px 9px;"></i>
+                          <input type="file" id="imageInp" name="image" multiple="false" accept="image/*"
+                            class="file-uplod-dilog" onchange="viewImage(event)">
+
+                          <img src="" id="image" alt="">
+                        </label>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="service name" class="float-left text-dark ml-3 mt-2" style="font-size:medium;">Service
+                        Name :</label>
+                      <input type="text" name="serviceName" id="serviceName" class="mb-4" style="width: 90%;">
+                    </div>
+                    <button class="btn btn-warning but">Submit</button>
+
+
+
+                    <a href="#0" class="cd-popup-close img-replace">Close</a>
+                  </form>
+                </div> <!-- cd-popup-container -->
+              </div> <!-- cd-popup -->
+
+
+              <div class="cd-popup-sub" role="alert">
+                <div class="cd-popup-container">
+                  <form action="/admin/add-sub-service" method="post" enctype="multipart/form-data">
+
+                    <div class="form-group">
+                      <input type="hidden" value="" name="id" id="id2">
+                      <label for="service name" class="float-left text-dark ml-3 mt-2" style="font-size:medium;">Sub
+                        Service
+                        Name :</label>
+                      <input type="text" name="serviceName" id="serviceName" class="mb-4" style="width: 90%;">
+                    </div>
+                    <button class="btn btn-warning but">Submit</button>
+
+
+
+                    <a href="#0" class="cd-popup-close img-replace">Close</a>
+                  </form>
+                </div> <!-- cd-popup-container -->
+              </div> <!-- cd-popup -->
+
+
+              
+              </div>
+
+            </div>
+          </div>
+        </div>
+  </section>
+</div>

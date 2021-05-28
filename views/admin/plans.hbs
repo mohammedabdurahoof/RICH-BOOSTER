@@ -1,0 +1,99 @@
+<div class="content">
+    <section class="price-area section-gap pb-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header ">
+                        <h5 class="card-title">Services</h5>
+                        <button class="btn btn-warning float-right cd-popup-trigger-sub"
+                            style="margin-top: -45px !important;">Add Plan</button>
+                    </div>
+                    <div class="card-body ">
+                        <div class="row">
+                            {{#each plans}}
+                            <div class="col-lg-4 col-md-6 single-price">
+                                <div class="top-part">
+                                    <h1 class="package-no">0{{count @index}}</h1>
+                                    <h4>{{this.serviceModel}}</h4>
+                                    <p class="mt-10">{{planName}}</p>
+                                </div>
+                                <div class="package-list">
+                                    <ul>
+                                        <li>{{feature1}}</li>
+                                        <li>{{feature2}}</li>
+                                        <li>{{feature3}}</li>
+                                        <li>{{feature4}}</li>
+                                        <li>{{feature5}}</li>
+                                    </ul>
+                                </div>
+                                <div class="bottom-part">
+                                    <h1>${{planPrice}}.00</h1>
+                                    <a class="price-btn text-uppercase bg-danger" onclick="return confirm('are you want delete this plan')"  href="/admin/deletePlan?service={{../service}}&id={{../id}}&plan={{planName}}">Delete Plan</a>
+                                </div>
+                            </div>
+                            {{/each}}
+                            
+                        </div>
+                    </div>
+
+                    <div class="cd-popup-sub" role="alert">
+                        <div class="cd-popup-container">
+                            <form action="/admin/add-plan?service={{service}}&id={{id}}" method="post" enctype="multipart/form-data">
+                                <div class="form-group pt-4">
+                                    <select name="serviceModel" class="form-control" id="" required style="width: 90%; margin-left: 20px;">
+                                    <option value="">Select A Option</option>
+                                    <option value="Basic">Basic</option>
+                                    <option value="Economy">Economy</option>
+                                    <option value="Business">Business</option>
+                                    <option value="Premium">Premium</option>
+                                </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="service name" class="float-left text-dark ml-3 mt-2"
+                                        style="font-size:medium;">Plan
+                                        Name :</label>
+                                    <input type="text" name="planName" id="serviceName" 
+                                        style="width: 90%;">
+                                </div>
+                                <div class="form-group">
+                                    <label for="service name" class="float-left text-dark ml-3 mt-2"
+                                        style="font-size:medium;">Quantity :</label>
+                                    <input type="text" name="quantity" id="serviceName" 
+                                        style="width: 90%;">
+                                </div>
+                                <div class="form-group">
+                                    <label for="service name" class="float-left text-dark ml-3 mt-2"
+                                        style="font-size:medium;">Plan Price(in$) :</label>
+                                    <input type="text" name="planPrice" id="serviceName" 
+                                        style="width: 90%;">
+                                </div>
+                                <div class="form-group">
+                                    <label for="service name" class="float-left text-dark ml-3 mt-2"
+                                        style="font-size:medium;">Plan Features :</label>
+                                    <input type="text" name="feature1" id="serviceName" class="mb-3"
+                                        style="width: 90%;">
+                                        <input type="text" name="feature2" id="serviceName" class="mb-3"
+                                        style="width: 90%;">
+                                        <input type="text" name="feature3" id="serviceName" class="mb-3"
+                                        style="width: 90%;">
+                                        <input type="text" name="feature4" id="serviceName" class="mb-3"
+                                        style="width: 90%;">
+                                        <input type="text" name="feature5" id="serviceName"  
+                                        style="width: 90%;">
+                                </div>
+                                
+                                <button class="btn btn-warning but">Submit</button>
+
+
+
+                                <a href="#0" class="cd-popup-close img-replace">Close</a>
+                            </form>
+                        </div> <!-- cd-popup-container -->
+                    </div> <!-- cd-popup -->
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

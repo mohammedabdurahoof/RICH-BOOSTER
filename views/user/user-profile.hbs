@@ -1,0 +1,148 @@
+<div class="content">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card card-user">
+        <div class="image">
+          <img src="images/damir-bosnjak.jpg" alt="...">
+        </div>
+        <div class="card-body">
+          <div class="author">
+            <img class="avatar border-gray" src="images/default-avatar.png" alt="...">
+            <h5 class="title text-warning">{{user.name}}</h5>
+            <p class="description">
+              @{{user.city}}
+            </p>
+          </div>
+        </div>
+        <div class="card-footer" style="margin-top: -86px;">
+          <hr>
+          <div class="button-container">
+            <div class="row">
+              <div class="col-lg-3 col-md-6 col-6 ml-auto">
+                <h5>12<br><small>Files</small></h5>
+              </div>
+              <div class="col-lg-4 col-md-6 col-6 ml-auto mr-auto">
+                <h5>2GB<br><small>Used</small></h5>
+              </div>
+              <div class="col-lg-3 mr-auto">
+                <h5>246$<br><small>Spent</small></h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Reset Password</h4>
+        </div>
+        <div class="card-body">
+          <form id="passwordUpdate">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Current Password</label>
+              <input type="password" class="form-control" placeholder="Current Password" name="currentpassword" required>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="exampleInputEmail1">New Password</label>
+              <input type="password" class="form-control" placeholder="New Password" name="newpassword" required>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Confirm Password</label>
+              <input type="password" class="form-control" placeholder="Confirm Password" name="c_newpassword" required>
+            </div>
+          </div>
+          <div class="row">
+              <div class="update ml-auto mr-auto">
+                <button type="submit" class="btn btn-warning btn-round">Update Password</button>
+              </div>
+            </div>
+            </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="card card-user">
+        <div class="card-header">
+          <h5 class="card-title">Edit Profile</h5>
+        </div>
+        <div class="card-body">
+          <form id="profileUpdate">
+            <div class="row">
+              <div class="col-md-6 pr-1">
+                <div class="form-group">
+                  <label>Agent (disabled)</label>
+                  <input type="text" class="form-control" disabled="" placeholder="Company" value="Rich Booster">
+                </div>
+              </div>
+              <div class="col-md-6 pl-1">
+                <div class="form-group">
+                  <label>Username</label>
+                  <input type="text" class="form-control" placeholder="Username" name="username"
+                    value="{{user.username}}" required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" class="form-control" placeholder="Email" name="email" value="{{user.email}}"
+                    required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 pr-1">
+                <div class="form-group">
+                  <label>Full Name</label>
+                  <input type="text" class="form-control" placeholder="Full Name" name="name" value="{{user.name}}"
+                    required>
+                </div>
+              </div>
+              <div class="col-md-6 pl-1">
+                <div class="form-group">
+                  <label>Phone Number</label>
+                  <input type="number" class="form-control" placeholder="Phone Number" name="number"
+                    value="{{user.number}}" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label>City</label>
+                  <input type="text" class="form-control" placeholder="City" name="city" value="{{user.city}}" required>
+                </div>
+              </div>
+              <div class="col-md-4 px-1">
+                <div class="form-group">
+                  <label>Country</label>
+                  <input type="text" class="form-control" placeholder="Country" name="country" value="{{user.country}}"
+                    required>
+                </div>
+              </div>
+              <div class="col-md-4 pl-1">
+                <div class="form-group">
+                  <label>Postal Code</label>
+                  <input type="number" class="form-control" placeholder="ZIP Code" name="zip_code"
+                    value="{{user.zip_code}}" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="update ml-auto mr-auto">
+                <button type="submit" class="btn btn-warning btn-round">Update profile</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

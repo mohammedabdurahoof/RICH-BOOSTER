@@ -1,0 +1,73 @@
+<div class="content">
+  <section class="price-area section-gap pb-4">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header ">
+            <h5 class="card-title">Services</h5>
+          </div>
+          <div class="card-body ">
+            <div class="row">
+              {{#each plans}}
+              <div class="col-lg-4 col-md-6 single-price">
+                <div class="top-part">
+                  <h1 class="package-no">0{{count @index}}</h1>
+                  <h4>{{this.serviceModel}}</h4>
+                  <p class="mt-10">{{planName}}</p>
+                </div>
+                <div class="package-list">
+                  <ul>
+                    <li>{{feature1}}</li>
+                    <li>{{feature2}}</li>
+                    <li>{{feature3}}</li>
+                    <li>{{feature4}}</li>
+                    <li>{{feature5}}</li>
+                  </ul>
+                </div>
+                <div class="bottom-part">
+                  <h1>${{planPrice}}.00</h1>
+                  <a class="price-btn text-uppercase cd-popup-trigger-sub-{{@index}}">buy now</a>
+                </div>
+              </div>
+              <div class="cd-popup-sub cd-popup-sub-{{@index}}" role="alert">
+                <div class="cd-popup-container">
+                  <div class="card">
+                    <div class="card-header">
+                      <h4 class="card-title">Enter your link:</h4>
+                    </div>
+                    <div class="card-body">
+                      <form id="checkoutform">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Enter your link here" name="link"
+                              required>
+                            <input type="hidden" name="service" value="{{../service}}">
+                            <input type="hidden" name="id" value="{{../id}}">
+                            <input type="hidden" name="quantity" value="{{quantity}}">
+                            <input type="hidden" name="planPrice" value="{{planPrice}}">
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="update ml-auto mr-auto">
+                            <button type="submit" class="btn btn-warning btn-round">Submit</button>
+                          </div>
+                        </div>
+                        <a href="#0" class="cd-popup-close img-replace">Close</a>
+                      </form>
+                    </div>
+                  </div>
+                </div> <!-- cd-popup-container -->
+              </div> <!-- cd-popup -->
+              {{/each}}
+
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>

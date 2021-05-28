@@ -1,0 +1,60 @@
+<div class="content">
+  <section class="price-area section-gap pb-4">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header ">
+            <h5 class="card-title">Your Orders</h5>
+          </div>
+          <div class="card-body ">
+            {{#if paymentStatus}}
+            <script>alert('{{paymentStatus}}')</script>
+            {{/if}}
+            <div class="row" style="justify-content: center;">
+              <table class="table display" style="width: 90%;" id="table_id">
+                <thead>
+                  <tr>
+                    <th scope="col">Transaction ID</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Payment</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {{#each orders}}
+                  <tr>
+                    <th>{{transactionId}}</th>
+                    <td>{{product}}</td>
+                    <td>$ {{totalAmount}}</td>
+                    <td>{{quantity}}</td>
+                    <td>{{date}}</td>
+                    <td>{{status}}</td>
+                    <td>{{PaymentStatus}}</td>
+                    {{#equal PaymentStatus 'pending'}}
+                    <td>
+                      <form action="/pay?id={{_id}}" method="POST">
+                        <button class="btn btn-warning">Pay</button>
+                      </form>
+                    </td>
+
+                    {{/equal}}
+                  </tr>
+                  {{/each}}
+                </tbody>
+              </table>
+
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>

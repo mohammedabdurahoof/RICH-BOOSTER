@@ -1,0 +1,67 @@
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">Contact Us</h5>
+
+        </div>
+        <div class="card-body">
+                <form id="contact-form">
+                    
+                    <div class="row">
+                        <div class="col-md-6 pr-1">
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input type="text" class="form-control" placeholder="First Name" name="fname" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 pl-1">
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input type="text" class="form-control" placeholder="Last Name" name="lname" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 pr-1">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" class="form-control" placeholder="Email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 pl-1">
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="tel" class="form-control" placeholder="Phone Number" name="phonenumber" required>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="userID"  value="{{user}}">
+                    <input type="hidden" name="time" id="time">
+                    <input type="hidden" name="date" id="date">
+                    <script>
+                        var time = new Date().toLocaleTimeString()
+                        var date = new Date().toLocaleDateString()
+                        document.getElementById('time').value=time
+                        document.getElementById('date').value=date
+                    </script>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label>Message</label>
+                            <textarea name="message" id="message" cols="96" rows="10"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="update ml-auto mr-auto">
+                            <button type="submit" class="btn btn-warning btn-round">SEND MESSAGE</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>

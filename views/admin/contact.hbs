@@ -1,0 +1,25 @@
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">Contact</h5>
+
+        </div>
+        <div class="card-body" style="min-height: 452px;">
+          <div class="row">
+            {{#each contacts}}
+            <a href="/admin/view_contact?id={{this._id}}" class="list-group-item text-dark">
+              <span style="width: 200px; display: inline-block; font-weight:bold;">{{this.fname}} {{this.lname}}</span>
+              <span class="limited-letter" >{{this.message}}</span>
+              <span class="badge float-right" style="margin-top: 4px;">{{this.date}}</span>
+            </a>
+            {{/each}}
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
