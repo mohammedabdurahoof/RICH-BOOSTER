@@ -8,15 +8,37 @@ const varifyLogin = (req, res, next) => {
   if (req.session.user) {
     next()
   } else {
-    res.redirect('/')
+    res.redirect('/login')
   }
 }
 
 
 
 
-router.get('/', function (req, res, next) {
-  res.render('user/index');
+router.get('/',async function (req, res, next) {
+  let about = await userHelper.getAbout()
+  let service = await userHelper.getService()
+  res.render('user/index',{about,service});
+});
+
+router.get('/guest/about', async (req, res) => {
+  let about = await userHelper.getAbout()
+  res.render('user/about', { login: true, about })
+})
+
+router.get('/guest/contact',(req, res) => {
+  res.render('user/contact', { login: true})
+})
+
+router.get('/guest/plans', async (req, res) => {
+  let service = req.query.service
+  let id = req.query.id
+  let plans = await userHelper.getPlans(id, service)
+  res.render('user/plans', { login: true,service, id, plans })
+})
+
+router.get('/login', function (req, res, next) {
+  res.render('user/login',{login:true});
 });
 
 router.post('/login', (req, res, next) => {
@@ -33,11 +55,11 @@ router.post('/login', (req, res, next) => {
   })
 })
 
-router.get('/singup', (req, res, next) => {
-  res.render('user/sing-up')
+router.get('/signup', (req, res, next) => {
+  res.render('user/sign-up',{login:true})
 })
 
-router.post('/singup', (req, res, next) => {
+router.post('/signup', (req, res, next) => {
   userHelper.doSingup(req.body).then((response) => {
     req.session.loggedIn = true
     req.session.user = response

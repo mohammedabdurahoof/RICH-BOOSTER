@@ -4,6 +4,9 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
+<meta name="description" content="">
+    <meta name="author" content="Marp cretions">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
 
   <title>Rich Booster</title>
@@ -30,16 +33,29 @@
     href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
 
 
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.css">
+
+    <link rel="stylesheet" href="/css/owl-carousel.css">
 
 </head>
 
 <body class="u-body">
+  <!-- ***** Preloader Start ***** -->
+<div id="preloader">
+    <div class="jumper">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<!-- ***** Preloader End ***** -->
+
   {{#if admin}}
   {{>admin-header}}
   {{else if user}}
   {{>user-header}}
-  {{else}}
-
+  {{else if login}}
+  {{>guest-header}}
   {{/if}}
 
   {{{body}}}
@@ -83,30 +99,14 @@
     </div> <!-- cd-popup-container -->
   </div> <!-- cd-popup -->
 
-  <footer class="text-center bg-dark text-light pt-4 pb-4" id="sec-1542">
-    <div class="">
-      <div class="container">
-
-
-        <div class="row">
-          <div class="col-12">
-            <div>
-              <p>
-
-                Copyright &copy;
-                <script>document.write(new Date().getFullYear());</script> All rights reserved by <a href="#"
-                  target="_blank">Marp cretions</a>
-
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    </div>
-  </footer>
+  {{#if admin}}
+  {{>footer}}
+  {{else if user}}
+  {{>footer}}
+  {{else if login}}
+  {{>footer}}
+  {{/if}}
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   <!--   Core JS Files   -->
@@ -127,6 +127,23 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
     crossorigin="anonymous"></script>
+     <!-- jQuery -->
+    <script src="/js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="/js/popper.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="/js/owl-carousel.js"></script>
+    <script src="/js/scrollreveal.min.js"></script>
+    <script src="/js/waypoints.min.js"></script>
+    <script src="/js/jquery.counterup.min.js"></script>
+    <script src="/js/imgfix.min.js"></script>
+
+    <!-- Global Init -->
+    <script src="/js/custom.js"></script>
+
   <script src="/js/main.js"></script>
 </body>
 
